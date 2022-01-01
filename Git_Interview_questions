@@ -1,0 +1,288 @@
+
+1.)* What is Version Control System(V.C.S.)?
+   
+2.)* Why we need any Version Control System(v.C.S)?
+    
+
+3.)* What is the difference between SVN and Git?
+   
+	1.
+	SVN is a centralised version control system. In svn, when a user checkout’s the repository, he will get only the source code. Repository is not distributed to the user. In SVN multiple users 		connect to a single/centralized server. If that server goes down, no user will be able to work.
+
+	Where as Git is distributed VCS. In the sense, when user clones the repository, he will get source code as well as complete repository on his local disk. since repository is distributed across 		multiple users and each user has their own local repository, user will be able to submit the changes locally without connecting to the master server. (i.e he can also work offline)
+
+	2.
+	Git has staging area. Users can leverage this staging area to stage/save all the changes related to some issue/bug and  commit everything at once into local repository. hence, all the changes will 		be recorded as part of single sha/commit. user's get an opportunity to logically group the changes and commit as single changeset. this enables better tracking.
+
+	3.
+	Since git is distributed in nature, almost all transactions happen locally in the client machine and hence less overhead on the server so git is faster.
+	Users are free to create any no. branches in Git. where as in svn, all branches reside in server side, so may cause svn to be overloaded with multiple requests.
+
+	4.
+	Git seems to be good with merging.
+
+	5.
+	Git stores each change as SHA values but SVN uses simple numbers as revisions.
+
+
+4.)* Which VCS you prefer? SVN Or Git? Why?
+  
+  
+5.)* What are the advantages of Git over SVN?
+
+   - Initialization - The git init is the command to create local repository. It can be used to convert an existing, unversioned project to a Git repository or initialize a new empty repository. 
+                      Subversion uses svn import command to create initial repository.
+
+   - Creating working copy - The git clone command creates a copy of the repository for modification. It is similar to svn checkout command.Unlike SVN, 
+                           - Git makes no distinction between the working copy and   the central repository—they are all full-fledged Git repositories. 
+                           - All the changes that are made in the working copy are committed in the local repository, not with central repository as done in svn. 
+                           - The communication is mostly local and this helps improve performance and avoiding locking issues.
+
+   - Committing changes in original repository - The changes are put back in original repository by git pull or git push commands depending upon where the command is executed.
+ 
+   - Staging area - This is unique feature of Git. It is called index. It is kind of temporary area where the changes could be reorganized before committing to the repository. 
+                  - This is an additional layer in addition to working copy and repository. 
+                  - Once you are satisfied the changes then it can be committed.
+
+
+6.) Why we call Git as Distributed VCS?
+   
+   	
+7.) Can you explain Git's End-to-End work flow?
+
+  	
+8.) How do you clone the code using git?
+
+
+9.)* What is the difference between Commit & Push?
+
+
+10.)* What is the difference bet'n Push and Pull?
+
+	 
+11.) Can you explain Git architecture?
+              
+                GIT
+   -       ---------------
+	  |   flipkart    |
+	  |   --------------------> Source code + Meta data  
+	  |  |10K files|  |--------> Remote Repository.
+	  |   ----|-----  |
+           -------|--------
+		  |
+	----------------------------
+       |Source   |  Stage   |  .git | ---------> local Repository.
+        ----------------------------
+
+12.)* What is the diff. bet'n Centralized and Distributed VCS.
+
+13.) Have you ever created Remote repositories in Git? How?
+   
+
+14.) What happens if I delete .git folder?
+										     ----------
+
+15.) How do you configure username, email and editor first time in Git?
+	
+
+16.) Where Git stores configuration details?
+	
+
+17.)* What is the advantage of STAGE in Git?
+	
+18.) Git log options related questions
+	
+
+19. What is SHA-1? How Git uses this?
+	
+
+20.)* I have a file modified in my Working directory. How do you show the content diff?
+
+     
+21.)* How do you show the content diff of a file which is staged?
+
+   
+22.) How do you delete and rename a file in Git?
+
+
+23.)** What is your branching stratogy? OR Can you explain your release process/Stratogy?
+					--
+
+24.)** What branching model you suggest for parellel development?
+
+25.) Developer fixes a bug. How do you take the change to production?
+ 
+
+26.)** Explain defferent branching models that you have worked-on.
+    
+
+27.) Did you work on merging the code in Git?
+    
+   	
+28.)* How do you merge the code in Git?
+
+   
+29.)* What is merge? 
+
+30.)*What is conflict? OR When do we get conflict?
+
+	
+31.)* What is fast-forward merge in Git?
+ 	
+	# FAST-FORWARD MERGE
+
+	BEFORE MERGE:
+	-------------
+	    1. In master branch we have ----C1--C2---C3, now we are creating new branch i.e dev_1.2.3, in this branch we created new files i.e ----C4--C5, now we are merging this files into 		       master branch, means merging dev_1.2.3 into master branch. It is called FAST-FORWARD MERGE.
+ 		
+				master
+				 |
+	----C1--C2---C3
+				 |
+				 ----------C4----C5  
+									dev_1.2.3	
+	AFTER MERGE:
+	-------------
+	 			     			master
+				     			  |
+	----C1----C2---C3------C4----C5
+				     		  	  |
+				     			dev_1.2.3
+
+
+32.)* What is the difference between Merge and Rebase?
+	
+
+33.)* How do you resolve the conflit in Git?
+	
+	
+34.)* What kind of conflicts you have seen?
+
+	
+35.) Who resolves the conflicts?
+	
+	
+36.)** What is the difference between branch and tag? 
+
+
+37.) When do you create a branch and tag?
+	
+
+38.) How do you create a branch and switch to that using single command?
+	
+
+39.) What is HEAD pointer in Git? Where Git store HEAD info.
+	
+
+40.) Can we store binary files in Git?
+	
+
+41.) Can skip the staging? How? what are the caveats?
+
+
+42.)* How do you list files/folders modified as part of a commit?
+	
+	-$ git show <SHA-value> (It show whole info about commit with contents and filenames)
+	-$ git diff-tree --no-commit-id --name-only -r <SHA-value> (It shows only files-names)
+
+
+43.)* How do you ignore: ex:
+	all files ending with .class
+	all files having alphanumeric
+	all log files but not build.log
+
+	
+44.) How do you add ignore list for all users?
+
+	
+45.)* What are the different files you ignore in your project?
+	
+	
+
+46.) How to remove a committed change? Or can we remove?
+		
+
+47.) How do you lock the branch?
+	
+
+48.) How do you clone the particular branch?
+
+	
+49.) How do you restore a deleted file? Or previous changes of a file?
+
+	
+50.) How do you list the diff. of a file between two different branches.
+
+
+51.) How do you list the changes which are going to be fetched? 
+
+	
+52.) What is Git Stash?
+	
+	
+53.) How do you add a new remote to git? Or How do you attach your local repo with remote?
+	
+	
+54.) What is git ls-tree?
+	
+
+55.) What is git cherry-pick?
+
+
+56.) What is git fork?
+
+	
+57.) What is git cherry-pick ?
+	
+
+58.) What is git squash ?
+
+	
+59.) what is difference between git fetch and pull and clone?
+	
+	
+60.) What are Git Hooks?
+	
+	
+
+61.) - What are Git TAGs?
+	
+     - Why should i create TAGs?
+
+     - When To create Tags?
+	
+
+62.) What is Git alias?
+
+	
+63.) What is Git gc?
+	
+	
+64.) What is git gc --aggressive?
+	
+65.) What inside .git folder?
+
+	
+66.) What is a bare Git repository?
+
+67.) What is a Git Remote Repository?
+	
+	
+68.) What is the Working Tree in Git?
+	
+	
+69.) Roles and Responsibility in GIT?
+	
+70.) Which port is used by git?
+
+	
+71.) How to check all remote branches and how to get in locally
+
+=========================
+3.git bi-sect
+4.git blob
+5.git blame
+7.git web-hooks
+
+
+
