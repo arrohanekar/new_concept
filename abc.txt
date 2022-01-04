@@ -1,0 +1,3 @@
+this is new conflict test
+this is new conflict test
+hello test
